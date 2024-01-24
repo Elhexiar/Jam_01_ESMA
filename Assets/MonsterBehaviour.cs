@@ -5,13 +5,16 @@ using UnityEngine;
 public class MonsterBehaviour : MonoBehaviour
 {
     [SerializeField] public MonsterManager manager;
+    [SerializeField] public ScoreManager scoreManager;
     [SerializeField] public int index;
     [SerializeField] public bool colliding = false;
+    [SerializeField] public int value;
 
     // Start is called before the first frame update
     void Start()
     {
         manager = FindObjectOfType<MonsterManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();   
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class MonsterBehaviour : MonoBehaviour
                     {
                         Instantiate(manager.monsterList[index + 1], transform.position + (transform.position - collision.transform.position) / 2, transform.rotation);
                     }
+                    scoreManager.IncreaseScore(value);
                 }
                 
                 

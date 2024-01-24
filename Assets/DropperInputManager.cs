@@ -11,6 +11,7 @@ public class DropperInputManager : MonoBehaviour
     [SerializeField] private float bottomBound;
 
     [SerializeField] private MonsterManager monsterManger;
+    public bool failed = false;
     // Start is called before the first frame update
     void Start()
     {
